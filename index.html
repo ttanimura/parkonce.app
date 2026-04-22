@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>ParkOnce — one app for every parking zone</title>
+  <meta name="description" content="Scan any parking QR code. ParkOnce figures out the provider (PayByPhone, HotSpot, ParkMobile, Passport, Honk, ParkPlus, Zipby, Impark) and opens the right app with the zone already filled in. No accounts. No guessing." />
+  <meta name="theme-color" content="#01438D" />
+  <link rel="icon" type="image/png" href="icon.png" />
+  <link rel="apple-touch-icon" href="icon.png" />
+  <meta property="og:title" content="ParkOnce" />
+  <meta property="og:description" content="Scan any parking QR code. ParkOnce opens the right app with the zone already filled in." />
+  <meta property="og:image" content="https://parkonce.app/icon.png" />
+  <meta property="og:url" content="https://parkonce.app" />
+  <meta property="og:type" content="website" />
+  <style>
+    :root {
+      --blue: #01438D;
+      --blue-dark: #022f63;
+      --white: #ffffff;
+      --muted: #a8c0dd;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--blue);
+      color: var(--white);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px;
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .logo {
+      width: 128px;
+      height: 128px;
+      margin-bottom: 24px;
+      image-rendering: -webkit-optimize-contrast;
+    }
+    h1 {
+      font-size: clamp(28px, 6vw, 44px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0 0 16px;
+    }
+    .tagline {
+      font-size: clamp(16px, 3vw, 20px);
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 0 0 40px;
+      max-width: 560px;
+    }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 48px;
+    }
+    .cta {
+      display: inline-block;
+      padding: 14px 24px;
+      background: var(--white);
+      color: var(--blue);
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 16px;
+      text-decoration: none;
+      border: 2px solid var(--white);
+      transition: transform 0.12s ease;
+    }
+    .cta:hover { transform: translateY(-1px); }
+    .cta.secondary {
+      background: transparent;
+      color: var(--white);
+    }
+    .cta[aria-disabled="true"] {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+    .how {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 640px;
+      margin-top: 8px;
+    }
+    .step {
+      background: var(--blue-dark);
+      border-radius: 14px;
+      padding: 20px;
+      text-align: left;
+    }
+    .step-num {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .step-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .step-body { font-size: 14px; color: var(--muted); line-height: 1.45; }
+    footer {
+      padding: 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    footer a { color: var(--muted); text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <main>
+    <img class="logo" src="icon.png" alt="ParkOnce" />
+    <h1>One app for every parking zone.</h1>
+    <p class="tagline">
+      Scan any parking QR code. ParkOnce figures out the provider and opens the
+      right app — PayByPhone, HotSpot, ParkMobile, Passport, Honk, ParkPlus,
+      Zipby, or Impark — with the zone already filled in.
+    </p>
+
+    <div class="cta-row">
+      <a class="cta" href="#" aria-disabled="true">App Store (coming soon)</a>
+      <a class="cta secondary" href="#" aria-disabled="true">Google Play (coming soon)</a>
+    </div>
+
+    <div class="how">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">Point the camera</div>
+        <div class="step-body">QR code or just the printed zone number — both work.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">We pick the app</div>
+        <div class="step-body">Domain, GPS, and OCR cross-checks make sure the scan is legit.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">Zone is pre-filled</div>
+        <div class="step-body">You just tap Pay. Your plate rides along on the clipboard.</div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    &copy; <span id="year"></span> ParkOnce ·
+    <a href="mailto:hello@parkonce.app">hello@parkonce.app</a>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
