@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — ParkOnce</title>
+  <meta name="description" content="ParkOnce's privacy policy. What we collect, why, how long we keep it, and how to ask us to correct or delete it.">
+  <meta name="theme-color" content="#01438D">
+  <link rel="icon" type="image/png" href="/icon.png">
+  <link rel="apple-touch-icon" href="/icon.png">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #01438D;
+      --blue-dark: #033067;
+      --blue-light: #E8F0FB;
+      --ink: #0F172A;
+      --ink-soft: #475569;
+      --white: #FFFFFF;
+      --off-white: #F6F9FD;
+      --border: #E2E8F0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    /* Header strip — keeps brand identity without overshadowing the doc */
+    .doc-header {
+      background: var(--blue);
+      color: var(--white);
+      padding: 32px 24px;
+    }
+
+    .doc-header-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .doc-header img {
+      width: 44px;
+      height: 44px;
+    }
+
+    .doc-header a {
+      color: var(--white);
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    /* Main doc */
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: clamp(32px, 6vw, 44px);
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+
+    .last-updated {
+      color: var(--ink-soft);
+      font-size: 14px;
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: -0.3px;
+      margin-top: 48px;
+      margin-bottom: 14px;
+      color: var(--ink);
+    }
+
+    h2:first-of-type { margin-top: 0; }
+
+    p {
+      font-size: 16px;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+
+    p strong { font-weight: 700; }
+
+    ul {
+      margin: 0 0 14px 22px;
+      font-size: 16px;
+    }
+
+    ul li { margin-bottom: 6px; }
+
+    a {
+      color: var(--blue);
+      text-decoration: underline;
+      text-decoration-color: rgba(1,67,141,0.35);
+      text-underline-offset: 3px;
+    }
+
+    a:hover { text-decoration-color: var(--blue); }
+
+    /* Tables */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 8px 0 18px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--off-white);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 14px 16px;
+      vertical-align: top;
+      border-bottom: 1px solid var(--border);
+    }
+
+    tr:last-child th, tr:last-child td { border-bottom: 0; }
+
+    th {
+      background: var(--blue-light);
+      font-weight: 700;
+      color: var(--blue-dark);
+      font-size: 13px;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    /* Highlighted contact callout */
+    .contact-callout {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin: 8px 0 18px;
+    }
+
+    .contact-callout strong { color: var(--blue-dark); }
+
+    /* Footer matches landing page */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+
+    footer a {
+      color: var(--ink-soft);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--blue); }
+
+    footer .sep {
+      margin: 0 10px;
+      opacity: 0.5;
+    }
+
+    @media (max-width: 480px) {
+      th, td { padding: 12px 12px; font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="doc-header">
+  <div class="doc-header-inner">
+    <img src="/icon.png" alt="">
+    <a href="/">ParkOnce</a>
+  </div>
+</header>
+
+<main>
+  <h1>Privacy Policy</h1>
+  <p class="last-updated">Last updated: April 26, 2026</p>
+
+  <p>
+    ParkOnce Inc. is a British Columbia-incorporated business. We are committed
+    to handling your personal information consistent with our obligations under
+    British Columbia's <em>Personal Information Protection Act</em> (PIPA) and
+    Canada's <em>Personal Information Protection and Electronic Documents
+    Act</em> (PIPEDA).
+  </p>
+  <p>
+    This policy describes what we collect, why, how long we keep it, and how
+    you can ask us to correct or delete it.
+  </p>
+
+  <h2>1. Accountability</h2>
+  <p>
+    ParkOnce Inc. is accountable for the personal information under our
+    control.
+  </p>
+  <div class="contact-callout">
+    <strong>Privacy contact:</strong> <a href="mailto:privacy@parkonce.app">privacy@parkonce.app</a>
+  </div>
+  <p>
+    Under PIPA, "personal information" means information about an identifiable
+    individual — but not business contact information used to contact someone
+    at a place of business, and not work product information.
+  </p>
+
+  <h2>2. What we collect, and why</h2>
+  <p>
+    We collect the minimum personal information needed to run a parking scanner
+    that points you at the right provider app or website. We do <strong>not</strong>
+    collect:
+  </p>
+  <ul>
+    <li>Your name</li>
+    <li>Your email address</li>
+    <li>Your phone number</li>
+    <li>Your payment information</li>
+    <li>Your home address</li>
+  </ul>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>What we collect</th>
+          <th>Source</th>
+          <th>Why</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>License plate</strong> (optional)</td>
+          <td>You enter it during onboarding</td>
+          <td>Pre-fills your plate when we hand off to a parking provider app, so you don't retype it every session</td>
+        </tr>
+        <tr>
+          <td><strong>Device identifier</strong></td>
+          <td>iOS <em>identifierForVendor</em> or Android <em>ANDROID_ID</em></td>
+          <td>Lets us link a returning user to their plate and previous scans on the same install, without asking you to create an account</td>
+        </tr>
+        <tr>
+          <td><strong>Coarse GPS location</strong></td>
+          <td>Your phone's location service, with your permission</td>
+          <td>Find nearby parking zones; cross-check whether a scanned QR code matches the location it claims to be from (anti-scam)</td>
+        </tr>
+        <tr>
+          <td><strong>Scan events</strong> (the QR URL or photo of a sign you scanned, the zone code we recognized, what we routed to, whether it was flagged as suspicious, how long recognition took, the issuing date of the destination's SSL certificate)</td>
+          <td>Generated in-app each time you scan</td>
+          <td>Detect fraudulent QR stickers; measure recognition accuracy; detect when a parking provider quietly switches to a new URL pattern</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    We collect this information directly from you (or from your device, with
+    your permission) when you use the app.
+  </p>
+  <p>
+    We collect on the basis of <strong>implied consent</strong>: by installing
+    and using ParkOnce, you consent to the collection and uses described in
+    this policy. You can withdraw consent at any time by uninstalling the app
+    and emailing <a href="mailto:privacy@parkonce.app">privacy@parkonce.app</a>
+    to request deletion of any data we hold tied to your device.
+  </p>
+
+  <h2>3. How we use and share your information</h2>
+  <p>
+    We use the information above only for the purposes listed in section 2.
+  </p>
+  <p>
+    We share your information with the following service providers, who process
+    it on our behalf under data processing agreements that require them to
+    handle it consistent with our obligations under PIPA and PIPEDA:
+  </p>
+  <ul>
+    <li><strong>Supabase Inc.</strong> — our database. Data is stored in AWS Canada Central (Montreal) region.</li>
+    <li><strong>PostHog Inc.</strong> — product analytics. We send PostHog only non-identifying event metadata (e.g. <em>plate_saved=true</em>, never the plate itself).</li>
+    <li><strong>Sentry</strong> — crash and error reporting.</li>
+    <li><strong>Resend Inc.</strong> — transactional email (only used for our internal reporting, not for messaging users).</li>
+  </ul>
+  <p>
+    We do <strong>not</strong> sell your information. We do <strong>not</strong>
+    share it for advertising purposes.
+  </p>
+  <p>
+    We will disclose your information where required by law (for example, in
+    response to a court order, subpoena, or search warrant).
+  </p>
+
+  <h2>4. How long we keep your information</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>What</th>
+          <th>Kept for</th>
+          <th>What happens then</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>License plate</strong></td>
+          <td>Up to 90 days after you last set or changed it</td>
+          <td>Deleted from our database. You can re-enter it any time.</td>
+        </tr>
+        <tr>
+          <td><strong>Scan events — link to your device</strong> (device identifier, raw scanned input)</td>
+          <td>Up to 12 months from the scan</td>
+          <td><strong>Anonymized:</strong> we permanently remove the link between the scan and your device. The remaining data (the recognized zone, the outcome, recognition timing, location) stays in aggregate form for fraud detection and accuracy improvement, and can no longer be tied back to you.</td>
+        </tr>
+        <tr>
+          <td><strong>Local app data on your phone</strong> (your saved plate in app storage)</td>
+          <td>Until you uninstall the app or clear it in Settings</td>
+          <td>Stays on your device only</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    Why 90 days for plates: the longest user-facing dispute window we identified
+    across the parking providers we integrate with is 30 days (PayByPhone's
+    billing-error window). 90 days covers that with margin.
+  </p>
+
+  <h2>5. Keeping your information accurate</h2>
+  <p>
+    You can correct your license plate any time from inside the app. For any
+    other correction request, email
+    <a href="mailto:privacy@parkonce.app">privacy@parkonce.app</a> and we will
+    respond within 30 business days.
+  </p>
+  <p>
+    If we correct your information and we have shared it with a service
+    provider in the past year, we will pass the correction along to them.
+  </p>
+
+  <h2>6. How we protect your information</h2>
+  <p>
+    We use reasonable security measures to protect your information from
+    unauthorized access, collection, use, disclosure, or disposal:
+  </p>
+  <ul>
+    <li>Data in transit is encrypted with TLS.</li>
+    <li>Data at rest is encrypted by Supabase / AWS.</li>
+    <li>Database access is restricted by row-level security policies — the app's keys cannot reach our internal reporting tables; only our service role can.</li>
+    <li>We separate analytics events (no plates, no scanned URLs) from operational data so a leak of one cannot expose the other.</li>
+  </ul>
+  <p>
+    If a privacy breach occurs and there is a real risk of significant harm to
+    you, we will notify you and the Office of the Privacy Commissioner of
+    Canada where required by PIPEDA (s. 10.1).
+  </p>
+
+  <h2>7. Accessing your information</h2>
+  <p>Under PIPA, you have the right to ask:</p>
+  <ul>
+    <li>what personal information about you we hold,</li>
+    <li>how it has been or is being used, and</li>
+    <li>to whom it has been disclosed.</li>
+  </ul>
+  <p>
+    To make a request, email
+    <a href="mailto:privacy@parkonce.app">privacy@parkonce.app</a> in writing.
+    We may ask you to verify your identity (for example, by scanning from the
+    device on file, or providing the device identifier shown in app Settings)
+    before releasing data tied to that device.
+  </p>
+  <p>We will respond within <strong>30 business days</strong>.</p>
+
+  <h2>8. Complaints</h2>
+  <p>
+    If you are not satisfied with how we handle your personal information, you
+    can contact us first at
+    <a href="mailto:privacy@parkonce.app">privacy@parkonce.app</a>. We will
+    respond as quickly as possible.
+  </p>
+  <p>
+    If you remain unsatisfied, you have the right to complain to the Office of
+    the Information and Privacy Commissioner for British Columbia:
+  </p>
+  <div class="contact-callout">
+    <strong>Office of the Information and Privacy Commissioner for BC</strong><br>
+    PO Box 9038, Stn Prov Govt<br>
+    Victoria, B.C. V8W 9A4<br>
+    <a href="mailto:info@oipc.bc.ca">info@oipc.bc.ca</a> · (250) 387-5629<br>
+    <a href="https://www.oipc.bc.ca/" target="_blank" rel="noopener">oipc.bc.ca</a>
+  </div>
+  <p>
+    For complaints about cross-border or federal-private-sector matters, the
+    Office of the Privacy Commissioner of Canada:
+    <a href="https://www.priv.gc.ca/" target="_blank" rel="noopener">priv.gc.ca</a>.
+  </p>
+
+  <h2>9. Changes to this policy</h2>
+  <p>
+    If we change this policy, we will update the "Last updated" date at the
+    top. Substantive changes (new categories of data, new processors, longer
+    retention periods) will be highlighted on the page for 30 days after the
+    change.
+  </p>
+
+  <h2>What is <em>not</em> in this policy</h2>
+  <p>
+    This policy covers the consumer ParkOnce app and parkonce.app website. It
+    does not cover:
+  </p>
+  <ul>
+    <li>Privacy agreements with cities and parking authorities that license ParkOnce data feeds (those are governed by separate contracts and in some cases by BC's <em>Freedom of Information and Protection of Privacy Act</em> — FOIPPA).</li>
+    <li>Privacy agreements with parking providers (HotSpot, PayByPhone, HONK, etc.). When you tap through to a provider, their privacy policy applies to anything you do in their app.</li>
+  </ul>
+</main>
+
+<footer>
+  &copy; <span id="year"></span> ParkOnce Inc. All rights reserved.
+  <span class="sep">•</span>
+  <a href="/">Home</a>
+  <span class="sep">•</span>
+  <a href="mailto:hello@parkonce.app">Contact</a>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
