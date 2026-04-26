@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ParkOnce — One scan. Any meter. Any provider.</title>
-  <meta name="description" content="The parking app that works everywhere — and keeps you safe from scams. Coming soon to iOS and Android.">
+  <meta name="description" content="The parking app that works everywhere, and keeps you safe from scams. Coming soon to iOS and Android.">
   <meta name="theme-color" content="#01438D">
   <link rel="icon" type="image/png" href="icon.png">
   <link rel="apple-touch-icon" href="icon.png">
@@ -147,8 +147,8 @@
 
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
     }
 
     .feature-card {
@@ -287,6 +287,20 @@
       margin-bottom: 40px;
     }
 
+    .security-body + .security-body { margin-top: -24px; }
+
+    .security-body a {
+      color: var(--white);
+      text-decoration: underline;
+      text-decoration-color: rgba(255,255,255,0.45);
+      text-underline-offset: 3px;
+      transition: text-decoration-color 0.15s;
+    }
+
+    .security-body a:hover {
+      text-decoration-color: var(--white);
+    }
+
     .security-layers {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -345,13 +359,200 @@
       opacity: 0.5;
     }
 
+    /* ── HERO BADGE ── */
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+      animation: fadeUp 0.6s 0.05s ease both;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #2ade7a;
+      box-shadow: 0 0 0 0 rgba(42,222,122,0.7);
+      animation: pulse 1.6s infinite;
+    }
+
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(42,222,122,0.7); }
+      70%  { box-shadow: 0 0 0 8px rgba(42,222,122,0); }
+      100% { box-shadow: 0 0 0 0 rgba(42,222,122,0); }
+    }
+
+    /* ── CITIES ── */
+    .cities {
+      padding: 96px 24px;
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .cities-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .cities-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--blue-mid);
+      margin-bottom: 16px;
+    }
+
+    .cities-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: clamp(28px, 5vw, 44px);
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .cities-body {
+      font-size: 17px;
+      color: rgba(255,255,255,0.6);
+      max-width: 560px;
+      margin: 0 auto 48px;
+      line-height: 1.6;
+    }
+
+    .cities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+      text-align: left;
+    }
+
+    .cities-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .cities-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+      transform: translateY(-2px);
+    }
+
+    .cities-card h3 {
+      font-weight: 700;
+      font-size: 17px;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+
+    .cities-card p {
+      font-size: 15px;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    .cities-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--white);
+      color: var(--blue);
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: background 0.2s, color 0.2s, transform 0.15s;
+    }
+
+    .cities-cta:hover {
+      background: var(--blue-dark);
+      color: var(--white);
+      transform: translateY(-1px);
+    }
+
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    /* ── PRESS STRIP ── */
+    .press {
+      padding: 56px 24px;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .press-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .press-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 24px;
+    }
+
+    .press-logos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .press-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 8px 18px 8px 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+      transition: background 0.15s, border-color 0.15s, transform 0.15s;
+      white-space: nowrap;
+    }
+
+    .press-logo:hover {
+      background: var(--white);
+      border-color: var(--blue-mid);
+      transform: translateY(-1px);
+    }
+
+    .press-logo img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      border-radius: 50%;
+      display: block;
+    }
+
     @media (max-width: 480px) {
       .stat-bar { gap: 32px; }
+      .press-logos { gap: 10px; }
     }
   </style>
 </head>
@@ -366,9 +567,10 @@
   <h1>One scan.<br><em>Any meter.</em><br>Any provider.</h1>
 
   <p class="hero-sub">
-    Stop juggling parking apps. ParkOnce reads any sign — QR code or printed zone number — and routes you to payment instantly.
+    ParkOnce verifies every parking QR code before it opens. It blocks scams, corrects mistakes, and routes you to payment instantly.
   </p>
 </section>
+
 
 <section class="providers">
   <div class="providers-inner">
@@ -377,6 +579,7 @@
       <span class="chip"><img class="chip-logo" src="providers/honk.png" alt="">Honk</span>
       <span class="chip"><img class="chip-logo" src="providers/hotspot.png" alt="">HotSpot</span>
       <span class="chip"><img class="chip-logo" src="providers/hangtag.png" alt="">Impark / hangTag</span>
+      <span class="chip"><img class="chip-logo" src="providers/indigoneo.png" alt="">Indigo Neo</span>
       <span class="chip"><img class="chip-logo" src="providers/parkmobile.png" alt="">ParkMobile</span>
       <span class="chip"><img class="chip-logo" src="providers/parkplus.png" alt="">ParkPlus</span>
       <span class="chip"><img class="chip-logo" src="providers/parkvictoria.png" alt="">ParkVictoria</span>
@@ -390,19 +593,19 @@
 <section class="features">
   <div class="features-inner">
     <p class="features-label">Why ParkOnce</p>
-    <h2 class="features-title">Everything parking.<br>Nothing else.</h2>
+    <h2 class="features-title">Just parking.<br>Nothing else.</h2>
     <div class="features-grid">
-      <div class="feature-card">
-        <h3 class="feature-title">Scan anything</h3>
-        <p class="feature-body">QR code on the meter or printed zone number on the sign — ParkOnce reads both and routes you to the right payment page instantly.</p>
+      <div class="feature-card">        <h3 class="feature-title">Scan anything</h3>
+        <p class="feature-body">QR code or printed zone number. ParkOnce reads both and routes you to the right payment page instantly. No app download required for supported providers.</p>
       </div>
-      <div class="feature-card">
-        <h3 class="feature-title">Scam protection</h3>
-        <p class="feature-body">Every QR code is verified before it opens. Fake parking payment sites are blocked before you ever see them.</p>
+      <div class="feature-card">        <h3 class="feature-title">Scam protection</h3>
+        <p class="feature-body">Fake QR stickers on parking meters have triggered RCMP investigations and city-wide warnings. ParkOnce verifies every scan against three layers of checks before anything opens.</p>
       </div>
-      <div class="feature-card">
-        <h3 class="feature-title">One app, done</h3>
-        <p class="feature-body">HotSpot, Honk, ParkMobile, ParkPlus, PayByPhone — stop downloading a new app every time you park in a new city.</p>
+      <div class="feature-card">        <h3 class="feature-title">Sign health detection</h3>
+        <p class="feature-body">When users consistently struggle to read a sign, ParkOnce flags it for inspection. Damaged signs are detected passively, with no complaint required.</p>
+      </div>
+      <div class="feature-card">        <h3 class="feature-title">One app, everywhere</h3>
+        <p class="feature-body">HotSpot, Honk, ParkMobile, ParkPlus. Stop downloading a new app every time you park in a new city. One scan, done.</p>
       </div>
     </div>
   </div>
@@ -410,11 +613,11 @@
 
 <div class="stat-bar">
   <div class="stat-item">
-    <div class="stat-number">10,900</div>
+    <div class="stat-number">10,900+</div>
     <div class="stat-label">Parking zones mapped</div>
   </div>
   <div class="stat-item">
-    <div class="stat-number">9</div>
+    <div class="stat-number">10</div>
     <div class="stat-label">Providers supported</div>
   </div>
   <div class="stat-item">
@@ -428,7 +631,10 @@
     <p class="security-label">Security</p>
     <h2 class="security-title">Three layers of scam protection</h2>
     <p class="security-body">
-      Fake QR stickers on parking meters are a growing problem across North America. ParkOnce is the only app built to catch them.
+      Fake QR stickers on parking meters are an active epidemic across Canadian cities. In December 2025, <a href="https://dailyhive.com/vancouver/vancouver-qr-parking-scam" target="_blank" rel="noopener">Vancouver officially warned residents</a> not to scan QR codes on meters at all.
+    </p>
+    <p class="security-body">
+      In February 2026, the RCMP launched a fraud investigation after <a href="https://globalnews.ca/news/11673628/fraudulent-qr-codes-found-kelowna-parking-meters/" target="_blank" rel="noopener">fake QR codes were found on 75 Kelowna parking meters</a>. In April 2026, <a href="https://www.mississauga.ca/city-of-mississauga-news/news/city-warns-about-fraudulent-qr-codes-on-parking-machines/" target="_blank" rel="noopener">Mississauga staff removed more than 80 fraudulent stickers</a> downtown in a single sweep. ParkOnce is the only app that verifies a scan is legitimate before anything opens, restoring the convenience cities had to disable.
     </p>
     <div class="security-layers">
       <div class="layer">
@@ -446,17 +652,78 @@
       <div class="layer">
         <div class="layer-text">
           <strong>Sign validation</strong>
-          <span>Our OCR reads zone numbers directly from the physical sign and cross-references them with the QR — catching tampering no other app can detect.</span>
+          <span>Our OCR reads zone numbers directly from the physical sign and cross-references them with the QR, catching tampering no other app can detect.</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- PRESS STRIP -->
+<section class="press">
+  <div class="press-inner">
+    <p class="press-label">As reported by</p>
+    <div class="press-logos">
+      <a class="press-logo" href="https://dailyhive.com/vancouver/vancouver-qr-parking-scam" target="_blank" rel="noopener">
+        <img src="https://www.google.com/s2/favicons?domain=dailyhive.com&sz=64" alt="" loading="lazy">
+        Daily Hive
+      </a>
+      <a class="press-logo" href="https://globalnews.ca/news/11673628/fraudulent-qr-codes-found-kelowna-parking-meters/" target="_blank" rel="noopener">
+        <img src="https://www.google.com/s2/favicons?domain=globalnews.ca&sz=64" alt="" loading="lazy">
+        Global News
+      </a>
+      <a class="press-logo" href="https://www.cbc.ca/news/canada/british-columbia/whistler-parking-fake-qr-codes-9.7031720" target="_blank" rel="noopener">
+        <img src="https://www.google.com/s2/favicons?domain=cbc.ca&sz=64" alt="" loading="lazy">
+        CBC News
+      </a>
+      <a class="press-logo" href="https://www.ctvnews.ca/vancouver/article/fraudulent-qr-code-stickers-found-in-whistler-parking-lots/" target="_blank" rel="noopener">
+        <img src="https://www.google.com/s2/favicons?domain=ctvnews.ca&sz=64" alt="" loading="lazy">
+        CTV News
+      </a>
+<a class="press-logo" href="https://www.mississauga.ca/city-of-mississauga-news/news/city-warns-about-fraudulent-qr-codes-on-parking-machines/" target="_blank" rel="noopener">
+        <img src="https://www.google.com/s2/favicons?domain=mississauga.ca&sz=64" alt="" loading="lazy">
+        City of Mississauga
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CITIES + PROVIDERS -->
+<section class="cities" id="cities">
+  <div class="cities-inner">
+    <p class="cities-label">For cities &amp; operators</p>
+    <h2 class="cities-title">The intelligence layer your vendors can't provide</h2>
+    <p class="cities-body">
+      Your parking vendors each show you their own data. No single vendor shows you all of it,
+      and none of them detect fraud in real time. ParkOnce sees across provider boundaries.
+    </p>
+    <div class="cities-grid">
+      <div class="cities-card">        <h3>Real-time fraud alerts</h3>
+        <p>GPS-mapped scam incidents detected on first scan. Before a resident enters their card. Before you receive a complaint.</p>
+      </div>
+      <div class="cities-card">        <h3>Cross-provider analytics</h3>
+        <p>Session volume, demand heatmaps, and conversion rates across all providers simultaneously, in one dashboard.</p>
+      </div>
+      <div class="cities-card">        <h3>Sign health monitoring</h3>
+        <p>Damaged and illegible signs flagged automatically using OCR and manual entry patterns. Continuous passive infrastructure audit.</p>
+      </div>
+    </div>
+    <a href="mailto:partnerships@parkonce.app" class="cities-cta">
+      Talk to us about a pilot →
+    </a>
+  </div>
+</section>
+
 <footer>
-  &copy; <span id="year"></span> ParkOnce. All rights reserved.
+  &copy; <span id="year"></span> ParkOnce Inc. All rights reserved.
   <span class="sep">•</span>
-  <a href="mailto:hello@parkonce.app">hello@parkonce.app</a>
+  <a href="/privacy">Privacy</a>
+  <span class="sep">•</span>
+  <a href="#cities">For Cities</a>
+  <span class="sep">•</span>
+  <a href="mailto:hello@parkonce.app">Contact</a>
+  <span class="sep">•</span>
+  <a href="mailto:partnerships@parkonce.app">Partnerships</a>
 </footer>
 
 <script>
