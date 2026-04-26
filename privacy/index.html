@@ -258,14 +258,9 @@
       </thead>
       <tbody>
         <tr>
-          <td><strong>License plate</strong> (optional)</td>
-          <td>You enter it during onboarding</td>
-          <td>Pre-fills your plate when we hand off to a parking provider app, so you don't retype it every session</td>
-        </tr>
-        <tr>
           <td><strong>Device identifier</strong></td>
           <td>iOS <em>identifierForVendor</em> or Android <em>ANDROID_ID</em></td>
-          <td>Lets us link a returning user to their plate and previous scans on the same install, without asking you to create an account</td>
+          <td>Lets us link a returning user's previous scans on the same install, without asking you to create an account</td>
         </tr>
         <tr>
           <td><strong>Coarse GPS location</strong></td>
@@ -281,6 +276,10 @@
     </table>
   </div>
 
+  <p>
+    <strong>We do not collect license plates.</strong> The app neither asks
+    for nor stores plate numbers.
+  </p>
   <p>
     We collect this information directly from you (or from your device, with
     your permission) when you use the app.
@@ -304,7 +303,7 @@
   </p>
   <ul>
     <li><strong>Supabase Inc.</strong> — our database. Data is stored in AWS Canada Central (Montreal) region.</li>
-    <li><strong>PostHog Inc.</strong> — product analytics. We send PostHog only non-identifying event metadata (e.g. <em>plate_saved=true</em>, never the plate itself).</li>
+    <li><strong>PostHog Inc.</strong> — product analytics. We send PostHog only non-identifying event metadata.</li>
     <li><strong>Sentry</strong> — crash and error reporting.</li>
     <li><strong>Resend Inc.</strong> — transactional email (only used for our internal reporting, not for messaging users).</li>
   </ul>
@@ -329,33 +328,17 @@
       </thead>
       <tbody>
         <tr>
-          <td><strong>License plate</strong></td>
-          <td>Up to 90 days after you last set or changed it</td>
-          <td>Deleted from our database. You can re-enter it any time.</td>
-        </tr>
-        <tr>
           <td><strong>Scan events — link to your device</strong> (device identifier, raw scanned input)</td>
           <td>Up to 12 months from the scan</td>
           <td><strong>Anonymized:</strong> we permanently remove the link between the scan and your device. The remaining data (the recognized zone, the outcome, recognition timing, location) stays in aggregate form for fraud detection and accuracy improvement, and can no longer be tied back to you.</td>
         </tr>
-        <tr>
-          <td><strong>Local app data on your phone</strong> (your saved plate in app storage)</td>
-          <td>Until you uninstall the app or clear it in Settings</td>
-          <td>Stays on your device only</td>
-        </tr>
       </tbody>
     </table>
   </div>
-  <p>
-    Why 90 days for plates: the longest user-facing dispute window we identified
-    across the parking providers we integrate with is 30 days. 90 days covers
-    that with margin.
-  </p>
 
   <h2>5. Keeping your information accurate</h2>
   <p>
-    You can correct your license plate any time from inside the app. For any
-    other correction request, email
+    For any correction request, email
     <a href="mailto:privacy@parkonce.app">privacy@parkonce.app</a> and we will
     respond within 30 business days.
   </p>
@@ -373,7 +356,7 @@
     <li>Data in transit is encrypted with TLS.</li>
     <li>Data at rest is encrypted by Supabase / AWS.</li>
     <li>Database access is restricted by row-level security policies — the app's keys cannot reach our internal reporting tables; only our service role can.</li>
-    <li>We separate analytics events (no plates, no scanned URLs) from operational data so a leak of one cannot expose the other.</li>
+    <li>We separate analytics events (no scanned URLs, no raw scan input) from operational data so a leak of one cannot expose the other.</li>
   </ul>
   <p>
     If a privacy breach occurs and there is a real risk of significant harm to
