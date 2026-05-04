@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy — ParkOnce</title>
+  <title>Privacy Policy · ParkOnce</title>
   <meta name="description" content="ParkOnce's privacy policy. What we collect, why, how long we keep it, and how to ask us to correct or delete it.">
   <meta name="theme-color" content="#01438D">
   <link rel="icon" type="image/png" href="/icon.png">
@@ -36,7 +36,7 @@
       line-height: 1.6;
     }
 
-    /* Header strip — keeps brand identity without overshadowing the doc */
+    /* Header strip; keeps brand identity without overshadowing the doc */
     .doc-header {
       background: var(--blue);
       color: var(--white);
@@ -205,7 +205,7 @@
 
 <main>
   <h1>Privacy Policy</h1>
-  <p class="last-updated">Last updated: April 26, 2026</p>
+  <p class="last-updated">Last updated: May 3, 2026</p>
 
   <p>
     ParkOnce Inc. is a British Columbia-incorporated business. We are committed
@@ -229,7 +229,7 @@
   </div>
   <p>
     Under PIPA, "personal information" means information about an identifiable
-    individual — but not business contact information used to contact someone
+    individual, but not business contact information used to contact someone
     at a place of business, and not work product information.
   </p>
 
@@ -251,21 +251,37 @@
         <tr>
           <td><strong>Device identifier</strong></td>
           <td>iOS <em>identifierForVendor</em> or Android <em>ANDROID_ID</em></td>
-          <td>Lets us link a returning user's previous scans on the same install, without asking you to create an account</td>
+          <td>Lets us link a returning user's previous scans on the same install, without asking you to create an account. Reset by reinstalling the app.</td>
         </tr>
         <tr>
-          <td><strong>Coarse GPS location</strong></td>
+          <td><strong>GPS location</strong> (latitude / longitude, the OS-reported accuracy radius in metres, and a coarse fix-source bucket: "gps", "wifi", "cell", or "none")</td>
           <td>Your phone's location service, with your permission</td>
           <td>Find nearby parking zones; cross-check whether a scanned QR code matches the location it claims to be from (anti-scam)</td>
         </tr>
         <tr>
-          <td><strong>Scan events</strong> (the QR URL or photo of a sign you scanned, the zone code we recognized, what we routed to, whether it was flagged as suspicious, how long recognition took, the issuing date of the destination's SSL certificate)</td>
+          <td><strong>Scan events</strong>: for every scan we record what method you used (QR scan, camera text scan, or typed), what was actually input (the QR URL, the recognized zone code, or the code you typed), what we routed you to, whether the scan was flagged as suspicious, what the outcome was, and how long recognition took. For camera text scans we additionally keep a small audit trail (what the recognizer originally returned vs the corrected zone we displayed) so we can debug accuracy regressions. For QR scans we keep the issuing date of the destination's SSL certificate.</td>
           <td>Generated in-app each time you scan</td>
           <td>Detect fraudulent QR stickers; measure recognition accuracy; detect when a parking provider quietly switches to a new URL pattern</td>
+        </tr>
+        <tr>
+          <td><strong>Parking sessions</strong>: when a scan leads to a payment hand-off, we record which provider you were routed to, the URL we opened, and a link back to the originating scan event</td>
+          <td>Generated in-app when you tap a chip and we open the provider</td>
+          <td>Reconcile "did this scan turn into a paid session?" for end-to-end success metrics; respond to "your app sent me to the wrong provider" support requests</td>
+        </tr>
+        <tr>
+          <td><strong>Technical telemetry</strong>: app version, native build number, OS name + version, and device model (e.g. "iPhone 14 Pro")</td>
+          <td>Stamped on every scan event from the device</td>
+          <td>Pinpoint which build, OS, or device a regression came from when accuracy or latency drops. These are device-class diagnostics, not tracking identifiers.</td>
         </tr>
       </tbody>
     </table>
   </div>
+
+  <p>
+    We do <strong>not</strong> upload photos of signs to our servers. The
+    text-recognition model runs entirely on your device; only the recognized
+    text is sent.
+  </p>
 
   <div class="table-wrap">
     <table>
@@ -282,7 +298,7 @@
         </tr>
         <tr>
           <td><strong>Your email address</strong></td>
-          <td>Same — no account, no marketing list</td>
+          <td>Same reason as above. No account, no marketing list.</td>
         </tr>
         <tr>
           <td><strong>Your phone number</strong></td>
@@ -299,6 +315,10 @@
         <tr>
           <td><strong>Your license plate</strong></td>
           <td>The app neither asks for nor stores plate numbers</td>
+        </tr>
+        <tr>
+          <td><strong>Photos of parking signs</strong></td>
+          <td>The on-device camera frames are processed by an on-device text-recognition model and immediately discarded; nothing leaves your phone except the recognized text</td>
         </tr>
       </tbody>
     </table>
@@ -326,35 +346,94 @@
     handle it consistent with our obligations under PIPA and PIPEDA:
   </p>
   <ul>
-    <li><strong>Supabase Inc.</strong> — our database. Data is stored in AWS Canada Central (Montreal) region.</li>
-    <li><strong>PostHog Inc.</strong> — product analytics. We send PostHog only non-identifying event metadata.</li>
-    <li><strong>Sentry</strong> — crash and error reporting.</li>
-    <li><strong>Resend Inc.</strong> — transactional email (only used for our internal reporting, not for messaging users).</li>
+    <li>A <strong>database provider</strong> that stores the scan-event and parking-session rows described in section 2. Data is hosted in AWS Canada Central (Montreal).</li>
+    <li>A <strong>product-analytics provider</strong> that receives anonymous event metadata tied to your device identifier so we can compute per-device metrics like scan-success rate and drop-off. We never send raw scanned URLs, zone codes, or precise GPS to this provider. The events we send are limited to provider names, recognized-or-not booleans, scam-warning reasons, payment-handoff events, and recognition timing.</li>
+    <li>An <strong>error-monitoring provider</strong> that receives a stack trace and a recent breadcrumb trail when the app encounters an error. The OCR pipeline attaches breadcrumbs that include short fragments of text the recognizer saw (capped at 80 characters per block) so we can debug recognition failures from the field. These breadcrumbs are only transmitted when an error fires, not on every scan.</li>
+    <li>A <strong>transactional email provider</strong> that we use only for our internal reporting (retention-job alerts, weekly scrape summaries), not for messaging users.</li>
   </ul>
+  <p>
+    If you want the current vendor names, email
+    <a href="mailto:privacy@parkonce.app">privacy@parkonce.app</a> and we
+    will share them.
+  </p>
   <p>
     We will disclose your information where required by law (for example, in
     response to a court order, subpoena, or search warrant).
   </p>
 
-  <h2>4. How long we keep your information</h2>
+  <h2>4. How long we keep your information (retention and anonymization)</h2>
+  <p>We anonymize scan data in two stages.</p>
+
+  <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:18px;margin-top:24px;margin-bottom:8px;">Stage 1 (Day 0 to Day 90): linkable to your device</h3>
+  <p>For the first 90 days after a scan we keep the device identifier on the scan event so we can:</p>
+  <ul>
+    <li>respond to a "your app sent me to the wrong provider" support request and reconstruct what you scanned,</li>
+    <li>investigate a freshly reported scam QR sticker,</li>
+    <li>compute per-device metrics (e.g. how many scans an install does before its first paid session) for product analytics.</li>
+  </ul>
+
+  <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:18px;margin-top:24px;margin-bottom:8px;">Stage 2 (Day 90 onward): anonymized</h3>
+  <p>
+    90 days after a scan, an automated retention job nulls the device
+    identifier on the scan event. From that point forward the row cannot be
+    tied back to your device. The remaining columns (the recognized zone,
+    the recognized provider, what we routed to, the outcome of the route, the
+    OCR audit trail, the certificate-age signal, recognition timing, GPS
+    coordinates, and the technical telemetry: app version, OS, device model)
+    stay in the database indefinitely as anonymous operational data.
+  </p>
+  <p>Why we keep that anonymous tail forever:</p>
+  <ul>
+    <li><strong>Fraud detection.</strong> When someone reports a scam QR after the fact, we pattern-match the URL against earlier scans to find related scams. Removing the URL would close that audit trail.</li>
+    <li><strong>Accuracy regressions.</strong> When a build introduces an OCR regression, we replay the historical OCR audit trail through the new code to verify the fix.</li>
+    <li><strong>Provider URL drift.</strong> Parking providers occasionally change their URL formats without notice; the historical scan record is how we notice and update routing.</li>
+  </ul>
+  <p>
+    Once the device identifier is nulled, the GPS coordinates, zone, and URL
+    belong to the <strong>sign</strong>, not the user. Zone codes are
+    publicly printed and provider URLs are provider-controlled, so retaining
+    them without the device link does not re-identify anyone.
+  </p>
+
   <div class="table-wrap">
     <table>
       <thead>
         <tr>
           <th>What</th>
-          <th>Kept for</th>
-          <th>What happens then</th>
+          <th>When</th>
+          <th>What happens</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong>Scan events — link to your device</strong> (device identifier, raw scanned input)</td>
-          <td>Up to 12 months from the scan</td>
-          <td><strong>Anonymized:</strong> we permanently remove the link between the scan and your device. The remaining data (the recognized zone, the outcome, recognition timing, location) stays in aggregate form for fraud detection and accuracy improvement, and can no longer be tied back to you.</td>
+          <td><strong>Device identifier on scan events</strong></td>
+          <td>90 days after the scan</td>
+          <td>Permanently nulled by the retention job</td>
+        </tr>
+        <tr>
+          <td><strong>All other scan-event columns</strong> (recognized zone, OCR audit, GPS, timing, certificate signal, technical telemetry, raw scanned URL or code)</td>
+          <td>n/a</td>
+          <td>Retained indefinitely as anonymous operational data, no longer linkable to a person</td>
+        </tr>
+        <tr>
+          <td><strong>Parking-session rows</strong> (when you tapped through to pay)</td>
+          <td>n/a</td>
+          <td>Retained indefinitely; tied to the originating scan event, which itself anonymizes at 90 days</td>
         </tr>
       </tbody>
     </table>
   </div>
+
+  <p>
+    The retention job runs daily and alerts us if a run silently fails. A
+    missed run would leave us out of compliance with this policy.
+  </p>
+  <p>
+    If you want your data deleted before the 90-day mark, email
+    <a href="mailto:privacy@parkonce.app">privacy@parkonce.app</a> with the
+    device identifier shown in app Settings; we will delete every row tied to
+    that device.
+  </p>
 
   <h2>5. Keeping your information accurate</h2>
   <p>
@@ -375,7 +454,7 @@
   <ul>
     <li>Data in transit is encrypted with TLS.</li>
     <li>Data at rest is encrypted by Supabase / AWS.</li>
-    <li>Database access is restricted by row-level security policies — the app's keys cannot reach our internal reporting tables; only our service role can.</li>
+    <li>Database access is restricted by row-level security policies. The app's keys cannot reach our internal reporting tables; only our service role can.</li>
     <li>We separate analytics events (no scanned URLs, no raw scan input) from operational data so a leak of one cannot expose the other.</li>
   </ul>
   <p>
@@ -438,7 +517,7 @@
     does not cover:
   </p>
   <ul>
-    <li>Privacy agreements with cities and parking authorities that license ParkOnce data feeds (those are governed by separate contracts and in some cases by BC's <em>Freedom of Information and Protection of Privacy Act</em> — FOIPPA).</li>
+    <li>Privacy agreements with cities and parking authorities that license ParkOnce data feeds (those are governed by separate contracts and in some cases by BC's <em>Freedom of Information and Protection of Privacy Act</em>, FOIPPA).</li>
     <li>Privacy agreements with parking providers (HotSpot, PayByPhone, HONK, etc.). When you tap through to a provider, their privacy policy applies to anything you do in their app.</li>
   </ul>
 </main>
